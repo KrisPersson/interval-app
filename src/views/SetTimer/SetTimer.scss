@@ -20,6 +20,7 @@
         font-size: $biggestText;
         font-weight: $boldText;
         letter-spacing: $letterSpacing;
+        cursor: default;
     }
 
     &__minutes {
@@ -35,10 +36,11 @@
         margin-right: auto; 
         margin-bottom: 0;
         letter-spacing: $letterSpacing;
+        cursor: default;
     }
 
     .arrow {
-     
+        cursor: pointer;
         align-self: center;
         &--decrease {
             
@@ -69,6 +71,7 @@
             flex-flow: row nowrap;
             align-items: center;
             letter-spacing: $letterSpacing;
+            cursor: pointer;
             input {
                 width: 1.5rem;
                 height: 1.5rem;

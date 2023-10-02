@@ -9,7 +9,8 @@ import { AnalogTimer } from "./views/AnalogTimer/AnalogTimer"
 import { DigitalTimer } from "./views/DigitalTimer/DigitalTimer"
 import { Loading } from "./views/Loading/Loading"
 import { SetTimer } from "./views/SetTimer/SetTimer"
-import { CurrentView } from "./types/index"
+import { CurrentView, TimerSettings } from "./types/index"
+
 
 
 
@@ -23,12 +24,16 @@ function App() {
       countdown: true 
   })
 
+  function handleStartTimer(settings: TimerSettings) {
+    const { minutes, intervals, fiveMinBreak } = settings
+    console.log(minutes, intervals, fiveMinBreak)
+}
   return (
     <div className='app'>
      {
       showLoadingScreen ? 
       <Loading setShowLoadingScreen={setShowLoadingScreen} /> 
-      : <SetTimer currentView={currentView} />
+      : <SetTimer handleStartTimer={handleStartTimer} />
      
      }
     </div>
