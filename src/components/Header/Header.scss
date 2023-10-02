@@ -1,0 +1,16 @@
+
+header {
+    grid-row: 1 / span 1;
+    background: inherit;
+}
+
+.menu-checkbox {
+    z-index: 2;
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    margin: 0;
+    opacity: 0;
+}

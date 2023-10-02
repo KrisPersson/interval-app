@@ -1,0 +1,32 @@
+@import '../../scss/mixins';
+
+.button {
+    @include button;
+
+    &--big {
+        @include btnBig;
+    }
+
+    &--smallDark {
+        @include btnSmall;
+        @include btnSmallDark;
+    }
+
+    &--smallLight {
+        @include btnSmall;
+        @include btnSmallLight;
+    }
+}
+
+.button:hover {
+    opacity: 100%;
+    cursor: pointer;
+}
+
+.button:active {
+    opacity: 100%;
+    cursor: pointer;
+    background: white;
+}
+
+

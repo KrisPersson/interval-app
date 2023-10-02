@@ -1,0 +1,57 @@
+@import './variables';
+@import './typography';
+
+
+@mixin view {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 4rem 1fr 6.5rem;
+    font-family: $font;
+}
+
+@mixin center {
+    display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@mixin button {
+    @include center;
+    font-family: $font;
+    background: transparent;
+    border-radius: 5px;
+    text-transform: uppercase;
+    opacity: 60%;
+}
+
+@mixin btnBig {
+    width: 17.4375rem;
+    height: 3.1875rem;
+    color: $blackText;
+    border: 1.5px solid $blackText;
+    font-size: $mediumText;
+    font-weight: $boldText;
+    letter-spacing: $letterSpacing;
+
+}
+
+@mixin btnSmall {
+    width: 9.3125rem;
+    height: 2.5625rem;
+    border: 1px solid $blackText;
+}
+
+@mixin btnSmallDark {
+    border: 1px solid $blackText;
+    color: $blackText;
+    border-color: $blackText;
+}
+@mixin btnSmallLight {
+    border: 1px solid $blackText;
+    color: $white;
+    border-color: $white;
+}
+
