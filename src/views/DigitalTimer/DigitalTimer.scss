@@ -1,0 +1,13 @@
+@import '../../scss/mixins';
+@import '../../scss/variables';
+@import '../../scss/typography';
+
+.timer-display {
+    @include center;
+
+    p {
+        font-size: $biggestText;
+        font-weight: $boldText;
+        color: $blackText;
+    }
+}

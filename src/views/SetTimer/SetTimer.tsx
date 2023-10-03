@@ -2,18 +2,10 @@ import "./SetTimer.scss"
 import { useState } from "react"
 import { Button } from "../../components/Button/Button"
 import { TimerSettings } from "../../types"
-export function SetTimer({ handleStartTimer }: { handleStartTimer: (settings: TimerSettings) => void }) {
+export function SetTimer({ handleStartTimer, handleIncrease, handleDecrease, pickedTime }: { handleStartTimer: (settings: TimerSettings) => void, handleIncrease: () => void, handleDecrease: () => void, pickedTime: number }) {
 
-    const [pickedTime, setPickedTime] = useState<number>(5)
     const [intervalsChecked, setIntervalsChecked] = useState<boolean>(false)
     const [breakIntervalsChecked, setBreakIntervalsChecked] = useState<boolean>(false)
-
-    function handleIncrease() {
-        setPickedTime(prev => prev + 1)
-    }
-    function handleDecrease() {
-        setPickedTime(prev => prev > 1 ? prev - 1 : prev)
-    }
 
     function handleCheckIntervals(event: React.ChangeEvent<HTMLInputElement>) {
         setIntervalsChecked(event?.currentTarget.checked)
@@ -25,7 +17,6 @@ export function SetTimer({ handleStartTimer }: { handleStartTimer: (settings: Ti
     }
     function extendedClickHandler() {
         handleStartTimer({
-            minutes: pickedTime,
             intervals: intervalsChecked,
             fiveMinBreak: breakIntervalsChecked
         })

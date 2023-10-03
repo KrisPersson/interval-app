@@ -18,6 +18,7 @@ import { CurrentView, TimerSettings, TimeValues, UserSettings } from "./types/in
 function App() {
   const [showLoadingScreen, setShowLoadingScreen] = useState<boolean>(true)
   const [currentView, setCurrentView] = useState<CurrentView>('SetTimer')
+  const [pickedTime, setPickedTime] = useState<number>(5)
   const [userSettings, setUserSettings] = useState<UserSettings>({
     intervals: false,
     fiveMinBreak: false
@@ -35,8 +36,15 @@ function App() {
     updateWhenTargetAchieved: true
   })
 
+  function handleIncrease() {
+    setPickedTime(prev => prev + 1)
+}
+function handleDecrease() {
+    setPickedTime(prev => prev > 1 ? prev - 1 : prev)
+}
+
   function handleStartTimer(settings: TimerSettings) {
-    const { minutes, intervals, fiveMinBreak } = settings 
+    const { intervals, fiveMinBreak } = settings 
 
     setUserSettings({intervals, fiveMinBreak})
     setCurrentView('DigitalTimer')
@@ -45,7 +53,7 @@ function App() {
       startValues: {
         days: 0,
         hours: 0,
-        minutes: minutes,
+        minutes: pickedTime,
         seconds: 0,
         secondTenths: 0
       },
@@ -54,6 +62,12 @@ function App() {
       countdown: true,
     })
 }
+
+function handleStopTimer() {
+  timer.stop()
+  setCurrentView('SetTimer')
+}
+
   return (
     <div className='app'>
       {
@@ -62,8 +76,12 @@ function App() {
         : isTargetAchieved ? 
         <h1>Target Achieved!</h1>
         : currentView === 'SetTimer' ? 
-        <SetTimer handleStartTimer={handleStartTimer} />
-        : <DigitalTimer currentView={currentView} timer={timer} />
+        <SetTimer handleStartTimer={handleStartTimer} handleIncrease={handleIncrease} handleDecrease={handleDecrease} pickedTime={pickedTime} />
+        : timer.isRunning() && currentView === 'DigitalTimer' ?
+        <DigitalTimer currentView={currentView} timer={timer} handleStopTimer={handleStopTimer} />
+        : timer.isRunning() && currentView === 'AnalogTimer' ? 
+        <AnalogTimer currentView={currentView} timer={timer} handleStopTimer={handleStopTimer} />
+        : <p>nothing :(</p>
       }
     </div>
   )
