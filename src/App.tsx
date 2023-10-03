@@ -80,13 +80,13 @@ function handleNavLinkClick(destination: CurrentView) {
         : isTargetAchieved && !userSettings.intervals ?
         <AlarmView setCurrentView={setCurrentView} timer={timer} />
         : isTargetAchieved && userSettings.fiveMinBreak ?
-        <PauseView setCurrentView={setCurrentView} timer={timer} />
-        : isTargetAchieved ?
-        <DigitalTimer currentView={setCurrentView} timer={timer} />
+        <PauseView timer={timer} />
+        : isTargetAchieved ? 
+        <DigitalTimer isTargetAchieved={isTargetAchieved} currentView={currentView} timer={timer} handleStopTimer={handleStopTimer} handleNavLinkClick={handleNavLinkClick} />
         : currentView === 'SetTimer' ? 
         <SetTimer handleStartTimer={handleStartTimer} handleIncrease={handleIncrease} handleDecrease={handleDecrease} pickedTime={pickedTime} />
         : timer.isRunning() && currentView === 'DigitalTimer' ?
-        <DigitalTimer currentView={currentView} timer={timer} handleStopTimer={handleStopTimer} handleNavLinkClick={handleNavLinkClick} />
+        <DigitalTimer isTargetAchieved={isTargetAchieved} currentView={currentView} timer={timer} handleStopTimer={handleStopTimer} handleNavLinkClick={handleNavLinkClick} />
         : timer.isRunning() && currentView === 'AnalogTimer' ? 
         <AnalogTimer currentView={currentView} timer={timer} handleStopTimer={handleStopTimer} handleNavLinkClick={handleNavLinkClick} />
         : <p>nothing :(</p>

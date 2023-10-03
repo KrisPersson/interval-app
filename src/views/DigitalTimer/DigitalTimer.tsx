@@ -9,9 +9,12 @@ import { parseTimeForDisplay } from "../../utils"
 import { Timer } from 'easytimer.js';
 
 
-export function DigitalTimer({currentView, timer, handleStopTimer, handleNavLinkClick}: {currentView: CurrentView, timer: Timer, handleStopTimer: () => void, handleNavLinkClick: (destination: CurrentView) => void}) {
+export function DigitalTimer({currentView, timer, isTargetAchieved, handleStopTimer, handleNavLinkClick}: {currentView: CurrentView, timer: Timer, isTargetAchieved: boolean, handleStopTimer: () => void, handleNavLinkClick: (destination: CurrentView) => void}) {
 
     const [showMenu, setShowMenu] = useState<boolean>(false)
+
+    if (isTargetAchieved) timer.reset()
+
     return (
         <div className='view view--digital-timer'>
         <Header
