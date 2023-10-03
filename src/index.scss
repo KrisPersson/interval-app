@@ -26,6 +26,10 @@ html, body {
     background: $black;
   }
 
+  &--alarm-view, &--pause-view {
+    background: $viewBg;
+  }
+
 }
 .button-container {
   grid-row: 3 / span 1;

@@ -77,8 +77,12 @@ function handleNavLinkClick(destination: CurrentView) {
       {
         showLoadingScreen ? 
         <Loading setShowLoadingScreen={setShowLoadingScreen} /> 
-        : isTargetAchieved ? 
-        <h1>Target Achieved!</h1>
+        : isTargetAchieved && !userSettings.intervals ?
+        <AlarmView setCurrentView={setCurrentView} timer={timer} />
+        : isTargetAchieved && userSettings.fiveMinBreak ?
+        <PauseView setCurrentView={setCurrentView} timer={timer} />
+        : isTargetAchieved ?
+        <DigitalTimer currentView={setCurrentView} timer={timer} />
         : currentView === 'SetTimer' ? 
         <SetTimer handleStartTimer={handleStartTimer} handleIncrease={handleIncrease} handleDecrease={handleDecrease} pickedTime={pickedTime} />
         : timer.isRunning() && currentView === 'DigitalTimer' ?
