@@ -4,7 +4,6 @@ import { NavMenu } from "../../components/NavMenu/NavMenu"
 import { CurrentView } from "../../types"
 import { Button } from "../../components/Button/Button"
 import { useState } from "react"
-import { parseTimeForDisplay } from "../../utils"
 import { Timer } from "easytimer.js"
 
 export function AnalogTimer({currentView, timer, handleStopTimer, handleNavLinkClick}: {currentView: CurrentView, timer: Timer, handleStopTimer: () => void, handleNavLinkClick: (destination: CurrentView) => void }) {
