@@ -31,8 +31,6 @@ function App() {
     secondTenths: 0
   }
 
-
-
   const [timer, isTargetAchieved] = useTimer({
     updateWhenTargetAchieved: true
   })
@@ -42,7 +40,7 @@ function App() {
 
     setUserSettings({intervals, fiveMinBreak})
     setCurrentView('DigitalTimer')
-    
+
     timer.start({
       startValues: {
         days: 0,
@@ -55,15 +53,16 @@ function App() {
       precision: "seconds",
       countdown: true,
     })
-    console.log(minutes, intervals, fiveMinBreak)
 }
   return (
     <div className='app'>
       {
         showLoadingScreen ? 
         <Loading setShowLoadingScreen={setShowLoadingScreen} /> 
-        : isTargetAchieved ? <h1>Target Achieved!</h1>
-        : currentView === 'SetTimer' ? <SetTimer handleStartTimer={handleStartTimer} />
+        : isTargetAchieved ? 
+        <h1>Target Achieved!</h1>
+        : currentView === 'SetTimer' ? 
+        <SetTimer handleStartTimer={handleStartTimer} />
         : <DigitalTimer currentView={currentView} timer={timer} />
       }
     </div>
