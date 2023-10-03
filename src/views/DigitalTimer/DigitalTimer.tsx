@@ -9,7 +9,7 @@ import { parseTimeForDisplay } from "../../utils"
 import { Timer } from 'easytimer.js';
 
 
-export function DigitalTimer({currentView, timer, handleStopTimer}: {currentView: CurrentView, timer: Timer, handleStopTimer: () => void}) {
+export function DigitalTimer({currentView, timer, handleStopTimer, handleNavLinkClick}: {currentView: CurrentView, timer: Timer, handleStopTimer: () => void, handleNavLinkClick: (destination: CurrentView) => void}) {
 
     const [showMenu, setShowMenu] = useState<boolean>(false)
     return (
@@ -19,7 +19,10 @@ export function DigitalTimer({currentView, timer, handleStopTimer}: {currentView
         />
         {
             showMenu ? 
-            <NavMenu currentView={currentView} /> :
+            <NavMenu
+                currentView={currentView} 
+                handleNavLinkClick={handleNavLinkClick}
+            /> :
             <>
                 <section className='timer-display'>
                     <p>{ parseTimeForDisplay(timer.getTimeValues()) }</p>

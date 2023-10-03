@@ -19,15 +19,13 @@ html, body {
 .view {
   @include view;
   padding: 1rem;
+  background: $bgGrey;
 
   
   &--loading {
     background: $black;
   }
 
-  &--set-timer {
-    background: $bgGrey;
-  }
 }
 .button-container {
   grid-row: 3 / span 1;

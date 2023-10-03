@@ -68,6 +68,10 @@ function handleStopTimer() {
   setCurrentView('SetTimer')
 }
 
+function handleNavLinkClick(destination: CurrentView) {
+  setCurrentView(destination)
+}
+
   return (
     <div className='app'>
       {
@@ -78,9 +82,9 @@ function handleStopTimer() {
         : currentView === 'SetTimer' ? 
         <SetTimer handleStartTimer={handleStartTimer} handleIncrease={handleIncrease} handleDecrease={handleDecrease} pickedTime={pickedTime} />
         : timer.isRunning() && currentView === 'DigitalTimer' ?
-        <DigitalTimer currentView={currentView} timer={timer} handleStopTimer={handleStopTimer} />
+        <DigitalTimer currentView={currentView} timer={timer} handleStopTimer={handleStopTimer} handleNavLinkClick={handleNavLinkClick} />
         : timer.isRunning() && currentView === 'AnalogTimer' ? 
-        <AnalogTimer currentView={currentView} timer={timer} handleStopTimer={handleStopTimer} />
+        <AnalogTimer currentView={currentView} timer={timer} handleStopTimer={handleStopTimer} handleNavLinkClick={handleNavLinkClick} />
         : <p>nothing :(</p>
       }
     </div>

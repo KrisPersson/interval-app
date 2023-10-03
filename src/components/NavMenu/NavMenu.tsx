@@ -1,7 +1,7 @@
 import "./NavMenu.scss"
 import { CurrentView } from "../../types"
 import { NavLink } from "../NavLink/NavLink"
-export function NavMenu({currentView}:{currentView: CurrentView}) {
+export function NavMenu({currentView, handleNavLinkClick}:{currentView: CurrentView, handleNavLinkClick: (destination: CurrentView) => void}) {
 
     return (
         <nav className='nav-menu'>
@@ -9,12 +9,14 @@ export function NavMenu({currentView}:{currentView: CurrentView}) {
                 <NavLink 
                     currentView={currentView}
                     id="DigitalTimer"
-                    displayText="Digital Timer" 
+                    displayText="Digital Timer"
+                    clickHandler={handleNavLinkClick} 
                 />
                 <NavLink 
                     currentView={currentView}
                     id="AnalogTimer"
-                    displayText="Analog Timer" 
+                    displayText="Analog Timer"
+                    clickHandler={handleNavLinkClick} 
                 />
             </ul>
         </nav>

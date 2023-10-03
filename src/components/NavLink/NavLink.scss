@@ -1,6 +1,17 @@
+@import '../../scss/typography';
+@import '../../scss/variables';
+
 .nav-link {
 
+    font-size: $mediumText;
+    text-transform: uppercase;
+    text-align: center;
+    color: $blackText;
+    margin: 1rem;
+    cursor: pointer;
+
     &--current {
-        
+        color: rgb(194, 194, 194);
+        cursor: default;
     }
 }
