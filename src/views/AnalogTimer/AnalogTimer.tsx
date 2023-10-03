@@ -10,6 +10,7 @@ import { Timer } from "easytimer.js"
 export function AnalogTimer({currentView, timer, handleStopTimer, handleNavLinkClick}: {currentView: CurrentView, timer: Timer, handleStopTimer: () => void, handleNavLinkClick: (destination: CurrentView) => void }) {
 
     const [showMenu, setShowMenu] = useState<boolean>(false)
+
     return (
         <div className='view view--analog-timer'>
         <Header
@@ -24,8 +25,8 @@ export function AnalogTimer({currentView, timer, handleStopTimer, handleNavLinkC
             <>
                 <section className='analog-clock-display'>
                     <img className="clock-body" src="/analog-clock.svg" alt="" />
-                    <img className="small-handle" src="/small-handle.svg" alt="" />
-                    <img className="big-handle" src="/big-handle.svg" alt="" />
+                    <img className="small-handle" style={{transform: `rotate(${timer.getTimeValues().seconds * 6}deg)`}} src="/small-handle.svg" alt="" />
+                    <img className="big-handle" style={{transform: `rotate(${timer.getTimeValues().minutes * 6}deg)`}} src="/big-handle.svg" alt="" />
 
 
                 </section>

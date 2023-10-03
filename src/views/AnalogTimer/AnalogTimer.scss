@@ -18,17 +18,15 @@
     position: absolute;
     @include centerAbsoluteHorizontal;
     @include centerAbsoluteVertical;
-    bottom: 8rem;
-    transform-origin: bottom;
+    bottom: 7.5rem;
+    transform-origin: 50% 94.5%;
     // transform: rotate(90deg);
     transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
 }
 
 .small-handle {
-    // position: absolute;
-    
-    margin-bottom: 7rem;
-    transform-origin: bottom;
-    transform: rotate(90deg);
+    margin-bottom: 7.5rem;
+    transform-origin: 50% 96.2%;
+    // transform: rotate(0deg);
     transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
 }
