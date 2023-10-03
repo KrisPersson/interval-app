@@ -15,22 +15,17 @@ html, body {
   height: 100%;
 }
 
-
 .view {
   @include view;
   padding: 1rem;
   background: $bgGrey;
 
-  
   &--loading {
     background: $black;
   }
 
   &--alarm-view, &--pause-view {
     background: $viewBg;
-  }
-
-  &--analog-timer {
   }
 
 }
