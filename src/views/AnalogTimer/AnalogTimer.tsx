@@ -11,7 +11,7 @@ export function AnalogTimer({currentView, timer, handleStopTimer, handleNavLinkC
 
     const [showMenu, setShowMenu] = useState<boolean>(false)
     return (
-        <div className='view view--digital-timer'>
+        <div className='view view--analog-timer'>
         <Header
         setShowMenu={setShowMenu} 
         />
@@ -22,8 +22,12 @@ export function AnalogTimer({currentView, timer, handleStopTimer, handleNavLinkC
                 handleNavLinkClick={handleNavLinkClick}
             /> :
             <>
-                <section className='timer-display'>
-                    <p>{ parseTimeForDisplay(timer.getTimeValues()) }</p>
+                <section className='analog-clock-display'>
+                    <img className="clock-body" src="/analog-clock.svg" alt="" />
+                    <img className="small-handle" src="/small-handle.svg" alt="" />
+                    <img className="big-handle" src="/big-handle.svg" alt="" />
+
+
                 </section>
                 <section className='button-container'>
                 <Button

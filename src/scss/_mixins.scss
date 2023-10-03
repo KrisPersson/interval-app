@@ -25,6 +25,13 @@
     margin-right: auto; 
 }
 
+@mixin centerAbsoluteVertical {
+    top: 0; 
+    bottom: 0; 
+    margin-top: auto; 
+    margin-bottom: auto; 
+}
+
 @mixin button {
     @include center;
     font-family: $font;

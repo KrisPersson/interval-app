@@ -1,0 +1,34 @@
+@import '../../scss/mixins';
+
+.analog-clock-display {
+    position: relative;
+    height: 17.375rem;
+    width: 17.375rem;
+    margin: auto auto;
+    @include center;
+}
+
+.clock-body {
+    position: absolute;
+    @include centerAbsoluteHorizontal;
+    @include centerAbsoluteVertical;
+}
+
+.big-handle {
+    position: absolute;
+    @include centerAbsoluteHorizontal;
+    @include centerAbsoluteVertical;
+    bottom: 8rem;
+    transform-origin: bottom;
+    // transform: rotate(90deg);
+    transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+}
+
+.small-handle {
+    // position: absolute;
+    
+    margin-bottom: 7rem;
+    transform-origin: bottom;
+    transform: rotate(90deg);
+    transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+}
