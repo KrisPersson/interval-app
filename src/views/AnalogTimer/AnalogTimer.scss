@@ -18,7 +18,7 @@
     position: absolute;
     @include centerAbsoluteHorizontal;
     @include centerAbsoluteVertical;
-    bottom: 7.5rem;
+    bottom: 7.25rem;
     transform-origin: 50% 94.5%;
     // transform: rotate(90deg);
     transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
@@ -29,4 +29,5 @@
     transform-origin: 50% 96.2%;
     // transform: rotate(0deg);
     transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+    z-index: 2;
 }
