@@ -10,9 +10,6 @@ import { Loading } from "./views/Loading/Loading"
 import { SetTimer } from "./views/SetTimer/SetTimer"
 import { CurrentView, TimerSettings, TimeValues, UserSettings } from "./types/index"
 
-
-
-
 function App() {
   const [showLoadingScreen, setShowLoadingScreen] = useState<boolean>(true)
   const [currentView, setCurrentView] = useState<CurrentView>('SetTimer')
@@ -51,8 +48,8 @@ function handleDecrease() {
       startValues: {
         days: 0,
         hours: 0,
-        minutes: pickedTime,
-        seconds: 0,
+        minutes: 0,
+        seconds: pickedTime,
         secondTenths: 0
       },
       target: targetValues,
